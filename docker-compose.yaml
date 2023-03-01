@@ -1,0 +1,51 @@
+version: '3.9'
+
+services:
+  frontend:
+    container_name: todo-frontend
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app  
+    networks:
+      - todo-network
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true  
+
+  backend:
+    container_name: todo-backend
+    restart: always
+    build: ./backend
+    ports:
+      - "5000:5000"
+    depends_on:
+      - database
+    volumes:
+      - ./backend:/app    
+    networks:
+      - todo-network
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+
+  database:
+    image: mongo
+    container_name: todo-database
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_backup:/data/db
+    networks:
+      - todo-network
+      
+volumes:
+  mongo_backup: {}
+
+networks:
+  todo-network:
+    driver: bridge

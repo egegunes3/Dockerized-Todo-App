@@ -1,0 +1,13 @@
+###Get a list of tasks
+GET http://localhost:5000/todos
+
+### Create a task
+POST http://localhost:5000/todos
+Content-Type: application/json
+
+{
+  "text": "Testing"
+}
+  
+###Delete task
+DELETE  http://localhost:5000/todos/:id

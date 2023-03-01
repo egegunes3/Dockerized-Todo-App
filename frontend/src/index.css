@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "poppins", "sans-serif";
+}
+
+.to-do-input {
+    width: 100%;
+    resize: vertical;
+    padding: 15px;
+    border-radius: 15px;
+    border: 0;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    overflow: auto;
+    min-height: 300px;
+    border: 1px solid black;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.add-btn {
+    display: inline-block;
+    background: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+.to-do {
+    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+    margin: 10px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.to-do h3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.save-btn {
+    background-image: radial-gradient(circle 248px at center, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
+    color: white;
+    border: none;
+    padding: 10px 20px 10px 20px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: inherit;
+    width: 100%;
+    cursor: pointer;
+}
+
+input {
+    width: 100%;
+    padding: 8px 0;
+}
+
+.popup-box {
+    position: fixed;
+    background: #00000050;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+
+.box {
+    position: relative;
+    width: 300px;
+    margin: 0 auto;
+    height: auto;
+    max-height: 70vh;
+    margin-top: calc(100vh - 85vh - 20px);
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid #999;
+    overflow: auto;
+}
+
+.close-icon {
+    content: 'x';
+    cursor: pointer;
+    position: fixed;
+    top: calc(100vh - 85vh - 33px);
+    background: #ededed;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    line-height: 20px;
+    text-align: center;
+    border: 1px solid #999;
+    font-size: 20px;
+}
