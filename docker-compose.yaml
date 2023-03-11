@@ -10,7 +10,8 @@ services:
     depends_on:
       - backend
     volumes:
-      - ./frontend:/app  
+      - ./frontend:/app
+      - /app/node_modules
     networks:
       - todo-network
     environment:
@@ -26,7 +27,8 @@ services:
     depends_on:
       - database
     volumes:
-      - ./backend:/app    
+      - ./backend:/app
+      - /app/node_modules
     networks:
       - todo-network
     environment:
