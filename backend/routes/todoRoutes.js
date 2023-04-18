@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const todo = require("../models/ToDo");
+const todo = require("../models/todo");
 
 router.get("/todos", async(req, res) => {
     const toDos = await todo.find();

@@ -1,13 +1,13 @@
-import Todo from "./Todo"
+import Todo from './Todo';
 
-const Todos = ({todos, deleteTodo}) => {
+const Todos = ({ todos, deleteTodo }) => {
   return (
     <>
-        {todos.map((todo, index) => (
-            <Todo key={index} todo={todo} deleteTodo={deleteTodo}/>
-        ))}
+      {todos.map((todo, index) => (
+        <Todo key={index} todo={todo} deleteTodo={deleteTodo} />
+      ))}
     </>
-  )
-}
+  );
+};
 
-export default Todos
+export default Todos;
