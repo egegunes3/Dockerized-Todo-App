@@ -8,7 +8,6 @@
 - Go to localhost:3000 to Run the application.
 - Run 'docker-compose down' to terminate the container.
 
-
 Use 'rest.http' to check the https requests.
 
 *Enjoy!*
