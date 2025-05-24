@@ -8,16 +8,20 @@ const App = () => {
   const [showForm, setShowForm] = useState(false);
   const [todos, setTodos] = useState([]);
 
+  const API_BASE = 'http://todo-backend-service';
+
   useEffect(() => {
     const fetchTodos = async () => {
-      const { data } = await axios.get('/todos');
+      const { data } = await axios.get(`${API_BASE}/todos`);
+      console.log('Sunucudan gelen todos:', data);
       setTodos(data);
     };
     fetchTodos();
   }, []);
 
   const addToDo = async (todo) => {
-    const res = await fetch('/todos', {
+    console.log('Gönderilen todo:', todo);
+    const res = await fetch(`${API_BASE}/todos`, {
       method: 'post',
       headers: {
         'content-type': 'application/json'
@@ -26,13 +30,12 @@ const App = () => {
     });
 
     const data = await res.json();
-
+    console.log('Backend cevabı:', data);
     setTodos([...todos, data]);
   };
 
   const deleteTodo = async (id) => {
-    await axios.delete(`/todos/${id}`);
-
+    await axios.delete(`${API_BASE}/todos/${id}`);
     setTodos(todos.filter((todo) => todo._id !== id));
   };
 
