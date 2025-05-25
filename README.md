@@ -14,36 +14,36 @@ Dockerized Todo App – GCP Cloud-Native Deployment (CS436 Project)
 
 This project is a cloud-native Todo application deployed across Google Kubernetes Engine (GKE), a Compute Engine VM, and a Cloud Function. It demonstrates modular cloud architecture, autoscaling, load testing, and serverless integration.
 
-🔧 1. Clone the Repository
+ 1. Clone the Repository
 
 git clone https://github.com/YOUR_USERNAME/Dockerized-Todo-App.git
 cd Dockerized-Todo-App
 
-🚀 2. Kubernetes Setup (GKE)
+ 2. Kubernetes Setup (GKE)
 
-✅ Step 1: Deploy MongoDB
+ Step 1: Deploy MongoDB
 
 kubectl apply -f mongo-deployment.yaml
 
-✅ Step 2: Deploy Backend
+ Step 2: Deploy Backend
 
 kubectl apply -f todo-backend-deployment.yaml
 
 Backend listens on port 5000. The service maps port: 80 → targetPort: 5000.
 
-✅ Step 3: Deploy Frontend
+ Step 3: Deploy Frontend
 
 kubectl apply -f todo-frontend-deployment.yaml
 
 Frontend uses an NGINX image to serve the static React build.
 
-✅ Step 4: Verify Services
+ Step 4: Verify Services
 
 kubectl get svc
 
 Note the EXTERNAL-IP of the frontend and backend services.
 
-⚙️ 3. VM Setup (Google Compute Engine)
+ 3. VM Setup (Google Compute Engine)
 
 Used for:
 
@@ -61,7 +61,7 @@ sudo apt install docker.io -y
 sudo systemctl start docker
 sudo docker run -d -p 27017:27017 -v mongodb_data:/data/db mongo:6.0
 
-🌐 4. Cloud Function (Serverless Health Check)
+ 4. Cloud Function (Serverless Health Check)
 
 This function:
 
@@ -90,13 +90,13 @@ exports.healthCheck = async (req, res) => {
   }
 };
 
-🐳 5. Local Docker Compose Setup (Optional)
+ 5. Local Docker Compose Setup (Optional)
 
 docker-compose up --build
 
 Frontend → http://localhost:3000Backend → http://localhost:5000
 
-🧰 6. Load Testing with Locust
+ 6. Load Testing with Locust
 
 Used on the VM:
 
